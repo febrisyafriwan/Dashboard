@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { Card, CardHeader, Box } from '@mui/material';
 // components
 import { useChart } from '../../../components/chart';
-
-// ----------------------------------------------------------------------
+import { getDataTotalCase } from '../../../store/slices/trafficSlice'
 
 AppTraffic.propTypes = {
   title: PropTypes.string,
@@ -15,6 +16,15 @@ AppTraffic.propTypes = {
 };
 
 export default function AppTraffic({ title, subheader, chartLabels, chartData, ...other }) {
+
+  const dataTotalCase = useSelector((state) => state.traffic.totalCase.data)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    // dispatch(increment())
+  }, []);
+
+
   const chartOptions = useChart({
     xaxis: { categories: [...chartLabels]},
     tooltip: {

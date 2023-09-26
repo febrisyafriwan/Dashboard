@@ -8,8 +8,8 @@ export function fDate(date, newFormat) {
   return date ? format(new Date(date), fm) : '';
 }
 
-export function fDateTime(date, newFormat) {
-  const fm = newFormat || 'dd MMM yyyy p';
+export function fTime(date, newFormat) {
+  const fm = newFormat || 'HH:mm:ss';
 
   return date ? format(new Date(date), fm) : '';
 }
